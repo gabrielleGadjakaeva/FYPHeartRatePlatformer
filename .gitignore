@@ -1,0 +1,44 @@
+# --- Unity ---
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
+# Uncomment if using Unity Collaborate
+# .collabignore
+
+# User-specific
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS-generated
+.DS_Store
+Thumbs.db
+
+# Python script output / virtualenv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.Python
+*.egg-info/
+*.log
+
+# VSCode
+.vscode/
