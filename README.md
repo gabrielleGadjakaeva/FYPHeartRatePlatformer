@@ -98,6 +98,7 @@ The Python script:
 
 - Python script made using the bleakheart driver from `https://github.com/fsmeraldi/bleakheart.git`
 - RR interval data for simulated mode taken from [PhysioNet](https://physionet.org/content/rr-interval-healthy-subjects/1.0.0/)
+- Player Sprite animation made by Grace `grace03ma@gmail.com`
 
 ---
 
