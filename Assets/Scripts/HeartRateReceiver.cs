@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Collections;
 using TMPro;
 
 // Receives heart rate data via UDP sent from a Python script using the BLE Polar H10 sensor
@@ -54,17 +55,11 @@ public class HeartRateReceiver : MonoBehaviour
         // Pause game until sensor is confirmed
         Time.timeScale = 0f;
 
-        // Setup UDP socket for receiving heart rate data
-        client = new UdpClient(5055);
-        receiveThread = new Thread(ReceiveData);
-        receiveThread.IsBackground = true;
-        receiveThread.Start();
-
         // Show connecting status
         if (noSensorPanel != null) noSensorPanel.SetActive(true);
-        if (noSensorText != null) noSensorText.text = "Connecting to sensor...";
+        if (noSensorText != null) noSensorText.text = "No Sensor Detected!";
 
-        lastDataTime = Time.time;
+        StartCoroutine(SensorConnect());
     }
 
     void Update()
@@ -118,6 +113,22 @@ public class HeartRateReceiver : MonoBehaviour
             tryingToReconnect = false;
             CancelInvoke(nameof(CheckReconnect));
         }
+    }
+
+    IEnumerator SensorConnect()
+    {
+        yield return new WaitForSecondsRealtime(2);
+
+        // Setup UDP socket for receiving heart rate data
+        client = new UdpClient(5055);
+        receiveThread = new Thread(ReceiveData);
+        receiveThread.IsBackground = true;
+        receiveThread.Start();
+
+        // Show connecting status
+        if (noSensorText != null) noSensorText.text = "Connecting to sensor...";
+
+        lastDataTime = Time.time;
     }
 
     // Continuously receives data from UDP socket and parses HR/RR values
