@@ -36,6 +36,7 @@ This Unity project is a 2D platformer that dynamically adjusts gameplay based on
 - Level length is also currently too long, the Level complete panel shows when a level is completed but the files are very long and it may get boring
 - Level progression is yet to be set up, like completing one level will unlock the next for example
 - Player animation sometimes bugs when player lands on a platform
+- Has only been tested with the Polar H10 heart rate monitor
 
 ---
 
@@ -83,14 +84,21 @@ The Python script:
    
    `pip install bleak bleakheart`
 
-5. **Run Python Script (can be skipped if no sensor)**
+5. **Run Python Script found in PythonScript folder (can be skipped if no sensor)**
 
    `python send_hr.py`
 
-6. **Open Unity Project**
+6. **Open Builds folder and navigate to your operating system**
    
+   - Download the folder corresponding to your operating system (either MacOS or Windows)
+   - Open executable file inside to run the game
+
+   Alternatively make your own build (Linux and other operating systems):
+
    - Open Unity project in Unity Hub
-   - Load the MainMenu scene
+   - Navigate to File -> Build settings
+   - Choose your operating system and press Build
+   - Then open exe file saved on your computer
 
 ---
 
